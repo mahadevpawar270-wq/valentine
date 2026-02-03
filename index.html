@@ -1,25 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will U Be My Valentine?</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>For My Sweetheart 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffd1dc, #ffe6f0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Comic Sans MS', cursive;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 35px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      animation: pop 1s ease;
+      max-width: 320px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      font-size: 2rem;
+    }
+
+    p {
+      color: #ff6f91;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    button {
+      padding: 12px 26px;
+      margin: 12px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background: #ffc2d1;
+      color: #333;
+      position: relative;
+    }
+
+    #yes:hover {
+      transform: scale(1.1);
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 22px;
+      animation: float 5s linear infinite;
+      color: #ff4d6d;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-700px); opacity: 0; }
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+  </style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>💕 Will You Be My Valentine? 💕</h1>
-        <div class="buttons">
-            <button id="yesBtn">YES 😍</button>
-            <button id="noBtn">NO 😢</button>
-        </div>
-        <p id="result"></p>
-    </div>
+  <div class="card">
+    <h1>💘 Sweetheart 💘</h1>
+    <p>Will you be my Valentine?</p>
 
-    <canvas id="confetti"></canvas>
+    <button id="yes">Yes 💕</button>
+    <button id="no">No 🙈</button>
 
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script src="script.js"></script>
+    <p id="msg"></p>
+  </div>
+
+  <script>
+    const yes = document.getElementById("yes");
+    const no = document.getElementById("no");
+    const msg = document.getElementById("msg");
+
+    yes.onclick = () => {
+      msg.innerHTML = `
+      Sweetheart, 💖<br><br>
+      From the moment you entered my life, everything started feeling a little warmer and a lot more beautiful.
+      Your smile has a way of calming my heart, and your presence makes even ordinary moments feel special.
+      I don’t promise perfection, but I promise honesty, care, laughter, and a love that chooses you every single day.
+      Thank you for being you — today and always. 💕
+      `;
+      createHearts();
+    };
+
+    no.onmouseover = () => {
+      const x = Math.random() * 150 - 75;
+      const y = Math.random() * 150 - 75;
+      no.style.transform = `translate(${x}px, ${y}px)`;
+    };
+
+    function createHearts() {
+      for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.bottom = "0px";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
+      }
+    }
+  </script>
+
 </body>
 </html>
