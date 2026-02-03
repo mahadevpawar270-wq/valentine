@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #fce4ec;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-size: 2rem;
+    color: #e91e63;
+}
+
+.buttons button {
+    margin: 15px;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#yesBtn {
+    background: #ff4081;
+    color: white;
+}
+
+#noBtn {
+    background: #b0bec5;
+    color: white;
+}
+
+#yesBtn:hover {
+    background: #f50057;
+}
+
+#noBtn:hover {
+    background: #90a4ae;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    color: #e91e63;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
